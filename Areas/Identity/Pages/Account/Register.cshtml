@@ -1,0 +1,191 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <partial name="_PageHeadElement" />
+
+    @*@RenderSection("Styles", required: false)
+        @RenderSection("HeadScripts", required: false)*@
+</head>
+<body>
+    @*<partial name="_GoogleTagManagerBodyElement" />-->
+
+        <partial name="_Sidenav" />*@
+    @*<div class="main-content">
+        <div class="container-fluid mt--4 col-md-4">
+            <div class="row">
+                <div class="">*@
+    <div class="card-body pt-0 justify-content-center">
+        
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+
+            <div class="row justify-content-center mt-5">
+                <h2>Create A New Account.</h2>
+            </div>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label asp-for="Input.First_Name"></label>
+                        <input asp-for="Input.First_Name" class="form-control" />
+                        <span asp-validation-for="Input.First_Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label asp-for="Input.Last_Name"></label>
+                        <input asp-for="Input.Last_Name" class="form-control" />
+                        <span asp-validation-for="Input.Last_Name" class="text-danger"></span>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label asp-for="Input.Password"></label>
+                        <input asp-for="Input.Password" class="form-control" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        <h6 target="_blank">
+                            Passwords must contain uppercase, lowercase, special character and alphanumeric
+
+
+                        </h6>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label asp-for="Input.ConfirmPassword"></label>
+                        <input asp-for="Input.ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label asp-for="Input.Email"></label>
+                        <input asp-for="Input.Email" class="form-control" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label asp-for="Input.UserName"></label>
+                        <input asp-for="Input.UserName" class="form-control" />
+                        <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label asp-for="Input.Gender"></label>
+                        <input asp-for="Input.Gender" class="form-control" />
+                        <span asp-validation-for="Input.Gender" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                <div class="form-group">
+                    <label asp-for="Input.Age"></label>
+                    <input asp-for="Input.Age" class="form-control" />
+                    <span asp-validation-for="Input.Age" class="text-danger"></span>
+                </div>
+            </div>
+
+            </div>
+
+             
+           
+
+
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label asp-for="Input.City"></label>
+                        <input asp-for="Input.City" class="form-control" />
+                        <span asp-validation-for="Input.City" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label asp-for="Input.Country"></label>
+                        <input asp-for="Input.Country" class="form-control" />
+                        <span asp-validation-for="Input.Country" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label asp-for="Input.Address"></label>
+                        <input asp-for="Input.Address" class="form-control" />
+                        <span asp-validation-for="Input.Address" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label asp-for="Input.Postal_code"></label>
+                        <input asp-for="Input.Postal_code" class="form-control" />
+                        <span asp-validation-for="Input.Postal_code" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="form-group">
+                        <label asp-for="Input.About_me"></label>
+                        <input asp-for="Input.About_me" class="form-control" />
+                        <span asp-validation-for="Input.About_me" class="text-danger"></span>
+                    </div>
+                </div>
+                </div>
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+        </form>
+            
+      
+    </div>
+    
+    
+    
+    @*</div>
+
+                        </div>
+                    </div>
+                </div>*@
+
+            @*<div class="row justify-content-center col-md-12">
+                <partial name="_Footer" />
+            </div>*@
+            <partial name="_ThemeScripts" />
+
+
+</body>
+</html>
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

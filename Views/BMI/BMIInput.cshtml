@@ -1,0 +1,154 @@
+﻿
+
+@using Microsoft.AspNetCore.Identity
+@using WeightTrackerApp6.Models;
+@model BMI
+
+@{ Layout = "_LayoutProfile";
+    ViewData["Title"] = "WeightInput"; }
+
+
+            @if (Model != null)
+            {
+        <div class="card-body pt-0 justify-content-center">
+            @*<span class="text-muted d-block mb-2"><i class="material-icons mr-1">first name</i>@Model.First_Name</span>*@
+            <form name="techBMI">
+                <h3>BMI Calculator</h3>
+                <br />
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label">Enter Weight (Kg)</label>
+                            <input type="text" name="weight" class="form-control" placeholder="Enter Weight (kg)" >
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label">Enter Height (Meters)</label>
+                            <input type="text" name="height" class="form-control" placeholder="Enter Height (Meters)">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="row align-items-center">
+                        <div class="col-12 text-center">
+                            <input type="button" value="Calculate" onclick="calculateBmi()" class="btn btn-md btn-primary">
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-4" />
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label" for="BMICount">BMI</label>
+                            <span class="form-control">@Model.BMICount</span>
+
+                            @*<label class="form-control-label" for="First_Name">First name</label>
+        <input type="text" id="i" name="First_Name" class="form-control" placeholder="First name">*@
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="form-group">
+                            <label class="form-control-label"></label>
+                            <input type="text" name="meaning" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="row align-items-center">
+                        <div class="col-12 text-center">
+                            <input type="reset" value="Reset" onclick="calculateBmi()" class="btn btn-md btn-primary" />
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row align-items-center">
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-md btn-primary">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        }
+            else
+            {
+        <div class="card-body pt-0 justify-content-center">
+            @*<span class="text-muted d-block mb-2"><i class="material-icons mr-1">first name</i>@Model.First_Name</span>*@
+            <form name="techBMI">
+                <h3>BMI Calculator</h3>
+                <br />
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label">Enter Weight (Kg)</label>
+                            <input type="text" name="weight" class="form-control" placeholder="Enter Weight (kg)" s>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label">Enter Height (Meters)</label>
+                            <input type="text" name="height" class="form-control" placeholder="Enter Height (Meters)">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="row align-items-center">
+                        <div class="col-12 text-center">
+                            <input type="button" value="Calculate" onclick="calculateBmi()" class="btn btn-md btn-primary">
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-4" />
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label" for="BMICount">BMI</label>
+                            <input type="text" id="BMICount" name="BMICount" class="form-control" placeholder="YOUR BMI WILL BE HERE">
+
+                            @*<label class="form-control-label" for="First_Name">First name</label>
+                        <input type="text" id="i" name="First_Name" class="form-control" placeholder="First name">*@
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="form-group">
+                            <label class="form-control-label"></label>
+                            <input type="text" name="meaning" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="row align-items-center">
+                        <div class="col-12 text-center">
+                            <input type="reset" value="Reset" onclick="calculateBmi()" class="btn btn-md btn-primary" />
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row align-items-center">
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-md btn-primary">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+            }
+
+
+
+

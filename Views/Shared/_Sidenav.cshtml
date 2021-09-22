@@ -1,0 +1,127 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+
+<!-- Sidenav -->
+<nav class="row card card-stats sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-info" id="sidenav-main">
+    <div class="scrollbar-inner">
+
+        <!-- Brand -->
+        <div class="sidenav-header  align-items-center">
+            <a class="navbar-brand" href="javascript:void(0)">
+                <h1 class="navbar-brand-img text-blue"> Clinify </h1>
+            </a>
+        </div>
+        <div class="navbar-inner">
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+
+                <!-- Collapse header -->
+                <div class="navbar-collapse-header d-md-none">
+                    <div class="row">
+                        <div class="col-6 collapse-brand">
+                            <a href="/">
+                                <img src="~/img/brand/blue.png">
+                            </a>
+                        </div>
+                        <div class="col-6 collapse-close">
+                            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Home")">
+                            <i class="ni ni-tv-2 text-primary"></i> 
+                            <span class="h6 text-white mb-0">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Profile", "Users")">
+                            <i class="ni ni-bullet-list-67 text-default"></i>
+                            <span class="h6 text-white mb-0">Profile</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link @(Context.Request.Path == "/BMI/BMI" ? "active" : "")" href="@Url.Action("BMI", "BMI")">
+                            <i class="ni ni-tablet-button text-red"></i>
+                            <span class="h6 text-white mb-0">BMI Calculator</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(Context.Request.Path == "/WeightDetails/WeightInputs" ? "active" : "")" href="@Url.Action("WeightInput", "WeightDetails")">
+                            <i class="ni ni-badge text-green"></i>
+                            <span class="h6 text-white mb-0">Weight information</span>
+                            
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link @(Context.Request.Path == "/CalorieCouter/CalorieCounter" ? "active" : "")" href="@Url.Action("CalorieCounter", "CalorieCounter")">
+                            <i class="ni ni-money-coins"></i>
+                            <span class="h6 text-white mb-0">Calorie Counter</span>
+                        </a>
+                        @*</li>
+            <li class="nav-item">
+                <a class="nav-link @(Context.Request.Path == "/Calorie_Counter" ? "active" : "")" href="@Url.Action("Calorie_Counter")">
+                    <i class="ni ni-pin-3 text-primary"></i> Calorie Counter
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(Context.Request.Path == "/Food_Tips" ? "active" : "")" href="@Url.Action("Food_Tips")">
+                    <i class="ni ni-single-02 text-yellow"></i> Food Tips
+                </a>
+            </li>*@
+                    <li class="nav-item">
+                        <a class="nav-link @(Context.Request.Path == "/WeightDetails/Tables" ? "active" : "")" href="@Url.Action("Tables", "WeightDetails")">
+                            <i class="ni ni-collection text-default"></i>
+                            <span class="h6 text-white mb-0">Previous Weight Infos</span>
+                        </a>
+                    </li>
+                    @*<li class="nav-item">
+            <a class="nav-link @(Context.Request.Path == "/BMI" ? "active" : "")" href="@Url.Action("BMI")">
+                <i class="ni ni-bullet-list-67 text-default"></i> BMI
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link @(Context.Request.Path == "/Weight_details" ? "active" : "")" href="@Url.Action("Weight_details")">
+                <i class="ni ni-bullet-list-67 text-default"></i> Weight Details
+            </a>
+        </li>*@
+
+
+                </ul>   
+            </div>
+
+            @* Not required for now *@
+
+            @* <li class="nav-item"> *@
+            @*     <a class="nav-link" href="#"> *@
+            @*         <i class="ni ni-key-25 text-info"></i> Login *@
+            @*     </a> *@
+            @* </li> *@
+            @* <li class="nav-item"> *@
+            @*     <a class="nav-link" href="#"> *@
+            @*         <i class="ni ni-circle-08 text-pink"></i> Register *@
+            @*     </a> *@
+            @* </li> *@
+
+            
+
+
+
+            
+            
+           
+        </div>
+        </div>
+   
+
+</nav>

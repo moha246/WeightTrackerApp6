@@ -1,0 +1,309 @@
+﻿
+
+@using Microsoft.AspNetCore.Identity
+@using WeightTrackerApp6.Models;
+@model Users
+
+@{ Layout = "_LayoutProfile";
+
+    ViewData["Title"] = "DoneDetails";
+    var imageUrl = ViewBag.userid + ".jpg";
+    }
+
+<div class="row">
+    <div class="col-xl-12 order-xl-1">
+        <div class="card card-profile">
+            <img src="~/img/theme/img-1-1000x600.jpg" alt="Image placeholder" class="card-img-top" style="height:120px;" >
+            <div class="row justify-content-center">
+                <div class="col-lg-3 order-lg-2">
+                    <div class="card-profile-image">
+                        <a href="javascript:void(0);" data-toggle="modal" data-target="#profilepicturemodal">
+                            <img src="~/Content/images/@imageUrl" class="rounded-circle"  onerror="this.onerror = null; this.src='~/img/theme/team-4.jpg'; ">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+
+                <div class="d-flex justify-content-between">
+                    <a href="/Users/EditDoneDetails" class="btn btn-sm btn-default float-right">Edit DoneDetails</a>
+                    @*<a href="/Users/Profile" class="btn btn-sm btn-default float-right">Add profile</a>*@
+                    @*<a class="nav-link" href="@Url.Action("Profile")">
+                        <i class="ni ni-single-02 text-yellow"></i> User profile
+                    </a>*@
+                </div>
+            </div>
+            <div class="card-body pt-0 justify-content-center">
+                @*<span class="text-muted d-block mb-2"><i class="material-icons mr-1">first name</i>@Model.First_Name</span>*@
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="First_Name">First name</label>
+                            <input type="text" id="First_Name" name="First_Name" class="form-control" placeholder="First name" readonly="readonly" value="@Model.First_Name">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="Last_Name">Last name</label>
+                            <input type="text" id="Last_Name" name="Last_Name" class="form-control" placeholder="Last name" readonly="readonly" value="@Model.Last_Name">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="Age">Age</label>
+                            <input type="text" id="Age" name="Age" class="form-control" placeholder="Age" readonly="readonly" value="@Model.Age">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="Gender">Gender</label>
+                            <input type="text" id="Gender" name="Gender" class="form-control" placeholder="Gender" readonly="readonly" value="@Model.Gender">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-control-label" for="Email">Email Address</label>
+                            <input type="email" id="Email" name="Email" class="form-control" placeholder="Email Address" readonly="readonly" value="@Model.Email">
+                        </div>
+                    </div>
+                    @*<div class="col-lg-8">
+                        <div class="form-group">
+                            <label class="form-control-label" for="User_Name ">Username</label>
+                            <input type="text" id="User_Name " name="User_Name" class="form-control" placeholder="Username" readonly="readonly" value="@Model.User_Name">
+                        </div>
+                    </div>*@
+                </div>
+
+
+                <hr class="my-4" />
+                <!-- Address -->
+                <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                <div class="pl-lg-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-control-label" for="Address">Address</label>
+                                <input id="Address" name="Address" class="form-control" placeholder="Home Address" readonly="readonly" type="text" value="@Model.Address">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-control-label" for="City">City</label>
+                                <input type="text" id="City" name="City" class="form-control" placeholder="City" readonly="readonly" value="@Model.City">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-control-label" for="Country">Country</label>
+                                <input type="text" id="Country" name="Country" class="form-control" placeholder="Country" readonly="readonly" value="@Model.Country">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-control-label" for="Postal_code">Postal code</label>
+                                <input type="number" id="Postal_code" name="Postal_code" class="form-control" placeholder="Postal code" readonly="readonly" value="@Model.Postal_code">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-4" />
+                <!-- Description -->
+                <h6 class="heading-small text-muted mb-4">About me</h6>
+                <div class="pl-lg-4">
+                    <div class="form-group">
+                        <label class="form-control-label">About Me</label>
+                        <input rows="4" id="About_me" class="form-control" name="About_me" placeholder="A few words about you .." readonly="readonly" value="@Model.About_me">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        @*modal body*@
+        @*<div class=" modal" id="profilepicturemodal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="col-8">
+                        <div class="custom-file">
+                            <label class="custom-file-label" for="custom-file">image</label>
+                            <input class="custom-file-input" type="file" id="imagepick" />
+                            <label></label>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-succes uploadImg">save</button>
+                </div>
+
+            </div>
+
+
+        </div>*@
+
+
+       
+        <!--<div class="text-center">
+        <h5 class="h3">-->
+        @*@(model.fullname != null ? model.fullname : model.username)*@
+        <!--<span class="font-weight-light">, 27</span>
+        </h5>
+        <div class="h5 font-weight-300">
+            <i class="ni location_pin mr-2"></i>
+            Bucharest, Romania
+        </div>
+        <div class="h5 mt-4">
+            <i class="ni business_briefcase-24 mr-2"></i>
+            Solution Manager - Creative Tim Officer
+        </div>
+        <div>
+            <i class="ni education_hat mr-2"></i>University of Computer Science
+        </div>
+    </div>-->
+    </div>
+
+</div>
+ 
+<div class="modal" tabindex="-1" role="dialog" id="profilepicturemodal" >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="custom-file">
+                        <label class="custom-file-label" for="custom-file">image</label>
+                        <input class="custom-file-input" type="file" id="imagepick" />
+                        <label></label>
+
+                    </div>
+                    @*<div class="modal-body">
+                        <p>Modal body text goes here.</p>
+                    </div>*@
+                    <div class="modal-footer">
+                        
+                        <button type="button" class="btn btn-primary uploadImg" id="imagepickbtn">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+@section scripts
+{ 
+    <script>
+
+
+
+
+        $(".uploadImg").click(function (e) {
+
+            var userid = '@ViewBag.userid';
+
+            $(".uploadImg").prop('disable', true);
+
+            var id = this.id.replace('btn', '');
+
+            var data = new FormData();
+
+            var file = $('#' + id)[0].files[0];
+
+            if (!file) {
+
+                alert('No image selected');
+
+                $(".uploadImg").prop('disable', true);
+
+
+
+                e.preventDefault();
+
+                e.stopPropagation();
+
+
+
+                return;
+
+            }
+
+            data.append('file', file);
+
+            var url = "";
+
+            if (id == 'imagepick') {
+
+                url = '/Users/UploadProfilePic?userid=' + userid;
+
+            }
+
+            $.ajax({
+
+                type: "POST",
+
+                url: url,
+
+                contentType: false,
+
+                processData: false,
+
+                data: data,
+
+                cache: false,
+
+                success: function (response) {
+
+                    if (response) {
+
+                        alert(response);
+
+
+
+                        $(".uploadImg").prop('disable', false);
+
+                    }
+
+                    else {
+
+                        $("#" + id + "btn").hide();
+
+                        $("#" + id + "-success-label").show();
+
+
+
+                        $(".uploadImg").prop('disable', false);
+
+                        //$("#companyLogoModal").modal('hide');
+
+                        $('#' + id)[0].value = "";
+
+                    }
+
+                },
+
+                error: function (xhr, status, err) {
+
+
+
+                    alert(err);
+
+                    console.log(err);
+
+                    $(".uploadImg").prop('disable', false);
+
+                }
+
+            });
+
+            return false;
+
+        });
+    </script>
+}
+

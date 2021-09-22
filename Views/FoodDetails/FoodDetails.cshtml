@@ -1,0 +1,215 @@
+﻿
+@using WeightTrackerApp6.Models;
+@model IQueryable<WeightDetails>
+
+@{ Layout = "_LayoutProfile";
+    ViewData["Title"] = "WeightDetails"; }
+
+<div class="row">
+    <div class="col-xl-4 order-xl-2">
+        <div class="card card-profile">
+            <img src="~/img/theme/img-1-1000x600.jpg" alt="Image placeholder" class="card-img-top">
+            <div class="row justify-content-center">
+                <div class="col-lg-3 order-lg-2">
+                    <div class="card-profile-image">
+                        <a href="#">
+                            <img src="~/img/theme/team-4.jpg" class="rounded-circle">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                <div class="d-flex justify-content-between">
+                    <a href="#" class="btn btn-sm btn-info mr-4">Connect</a>
+                    <a href="#" class="btn btn-sm btn-default float-right">Message</a>
+                </div>
+            </div>
+            <div class="card-body pt-0">
+                <div class="row">
+                    <div class="col">
+                        <div class="card-profile-stats d-flex justify-content-center">
+                            <div>
+                                <span class="heading">22</span>
+                                <span class="description">Friends</span>
+                            </div>
+                            <div>
+                                <span class="heading">10</span>
+                                <span class="description">Photos</span>
+                            </div>
+                            <div>
+                                <span class="heading">89</span>
+                                <span class="description">Comments</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h5 class="h3">
+                        @*@(model.fullname != null ? model.fullname : model.username)*@<span class="font-weight-light">, 27</span>
+                    </h5>
+                    <div class="h5 font-weight-300">
+                        <i class="ni location_pin mr-2"></i>
+                        Bucharest, Romania
+                    </div>
+                    <div class="h5 mt-4">
+                        <i class="ni business_briefcase-24 mr-2"></i>
+                        Solution Manager - Creative Tim Officer
+                    </div>
+                    <div>
+                        <i class="ni education_hat mr-2"></i>University of Computer Science
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-8 order-xl-1">
+        <div class="card">
+            <form action="@Url.Action("WeightDetails", "WeightDetails")" method="post">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <h3 class="mb-0">Food Detials </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h6 class="heading-small text-muted mb-4">
+                        Food Calorie Counter
+                    </h6>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-control-label" for="Weights">Food Category</label>
+                                <select class="form-control" id="foodCategory">
+                                    <option>Choose....</option>
+                                    @foreach (FoodCategory foodCategory in ViewBag.foodCategories)
+                                    {
+                                        <option value="@foodCategory.Id">@foodCategory.FoodName</option>
+                                    }
+
+                                </select>
+                                @*<select type="text" id="Weights" name="Weights" class="form-control" placeholder="FoodCategory">*@
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-control-label" for="Chest_size">Food Type</label>
+                                <select class="form-control" id="foodTypeId">
+                                    <option>Choose....</option>
+                                    @*@foreach (FoodType foodType in ViewBag.foodTypes)
+                                    {
+                            <option value="@foodType.Id">@foodType.FoodTypeName</option>}*@
+
+                                </select>
+
+
+                                @*<input type="text" id="Chest_size" name="Chest_size" class="form-control" placeholder="Chest Size">*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-control-label">Food Qty</label>
+                                <!--<select class="form-control" id="foodQTY">-->
+                                    @*<option>Choose....</option>
+                                    @foreach (FoodType foodType in ViewBag.foodTypes)
+                                    {
+                            <option value="@foodType.Id">@foodType.FoodTypeMeasurement</option>
+}*@
+
+                                <!--</select>-->
+                                <input type="text" id="foodQTY" name="foodQTY" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-control-label" for="Waist_size">Calorie Size</label>
+                                @*<select class="form-control">
+                                    <option>Choose....</option>*@
+                                    @*@foreach (FoodType foodType in ViewBag.foodTypes)
+                                    {
+                            <option value="@foodType.Id">@foodType.CalorieSize</option>
+                           }
+
+                                </select>*@
+                                <input type="text" id="CalorieSize" name = "CalorieSize" class="form-control" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="form-group">
+                                <label class="form-control-label" for="Date">Date Registered</label>
+                                <input type="date" id="Date" name="Date" class="form-control" placeholder="Date Registered">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="row align-items-center">
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-md btn-primary">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+           $(document).ready(function () {
+
+               var foodTypes = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.foodTypes))
+                
+                   $("#foodCategory").on('change', function (e) {
+                       var foodCategoryId = $(this).val();
+
+                       var options = "<option>choose ...</option>";
+                       $.each(foodTypes, function (i, val) {
+                           if (val.FoodCategorieId == foodCategoryId) {
+                               options += "<option value='"+val.Id+"'>" + val.FoodTypeName + "</option>";
+                           }
+                       });
+                       $("#foodTypeId").html(options);
+               });
+
+
+
+               
+               $("#foodTypeId").on('change', function (e) {
+                   var foodtype = $(this).val();
+                   $.each(foodTypes, function (i, val) {
+                       if (val.Id == foodtype) {
+                           $("#foodQTY").val(val.FoodTypeMeasurement);
+
+
+                       }
+                   });
+
+               });
+
+               $("#foodTypeId").on('change', function (e) {
+                   var foodtype = $(this).val();
+                   $.each(foodTypes, function (i, val) {
+                       if (val.Id == foodtype) {
+                           $("#CalorieSize").val(val.CalorieSize);
+
+
+                       }
+                   });
+
+               });
+
+               var increment = 20;
+                
+           })
+    </script>
+ }

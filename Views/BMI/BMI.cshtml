@@ -1,0 +1,119 @@
+﻿
+
+@using Microsoft.AspNetCore.Identity
+@using WeightTrackerApp6.Models;
+@model IQueryable<BMI>
+
+@{ Layout = "_LayoutProfile";
+    ViewData["Title"] = "BMIInput"; }
+
+@*<div>
+        <form name="techBMI">
+            <h3>BMI Calculator</h3>
+            <br />
+            <input type="text" name="weight" placeholder="Enter Weight (kg)" size="20"><br /><br />
+            <input type="text" name="height" placeholder="Enter Height (Meters)" size="20"><br /><br />
+            <input class="decoration-one px-3 py-2" type="button" value="Calculate BMI" onClick="calculateBmi()"><br /><br />
+            <input type="text" name="bmi" placeholder="Your BMI Will be here" size="20"><br /><br />
+            <input type="text" name="meaning" size="35"><br /><br />
+            <input class="decoration-one px-3 py-2" type="reset" value="Reset" />
+            <br />
+        </form>
+    </div>*@
+
+
+<div class="card-body pt-0 justify-content-center">
+    @*<span class="text-muted d-block mb-2"><i class="material-icons mr-1">first name</i>@Model.First_Name</span>*@
+    <form name="techBMI" action="@Url.Action("BMI", "BMI")" method="post">
+        <h3>BMI Calculator</h3>
+        <br />
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="form-control-label">Enter Weight (Kg)</label>
+                    <input type="text" name="weight" class="form-control" placeholder="Enter Weight (kg)" s>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="form-control-label">Enter Height (Meters)</label>
+                    <input type="text" name="height" class="form-control" placeholder="Enter Height (Meters)">
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <input type="button" value="Calculate" onclick="calculateBmi()" class="btn btn-md btn-primary">
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-4" />
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label class="form-control-label" for="BMICount">BMI</label>
+                    <input type="text" id="BMICount" name="BMICount" class="form-control" placeholder="YOUR BMI WILL BE HERE">
+
+                    @*<label class="form-control-label" for="First_Name">First name</label>
+                    <input type="text" id="i" name="First_Name" class="form-control" placeholder="First name">*@
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="form-group">
+                    <label class="form-control-label"></label>
+                    <input type="text" name="meaning" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <input type="reset" value="Reset" onclick="calculateBmi()" class="btn btn-md btn-primary" />
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-md btn-primary">
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+<script>
+    function calculateBmi() {
+        var weight = document.techBMI.weight.value
+        var height = document.techBMI.height.value
+        if (weight > 0 && height > 0) {
+            var finalBmi = weight / (height * height)
+            document.techBMI.BMICount.value = finalBmi.toFixed(3);
+            if (finalBmi < 18.5) {
+                document.techBMI.meaning.value = "You are unhealthy, too thin."
+            }
+            if (finalBmi > 18.5 && finalBmi < 25) {
+                document.techBMI.meaning.value = "You are healthy enough."
+            }
+            if (finalBmi > 25 && finalBmi < 30) {
+                document.techBMI.meaning.value = "You have overweight."
+            }
+            if (finalBmi > 30) {
+                document.techBMI.meaning.value = "Your condition is serious."
+            }
+        }
+        else {
+            alert("Data you've entered might be incorrect. Please check and try again.")
+        }
+
+    }
+</script>
